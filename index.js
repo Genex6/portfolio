@@ -640,15 +640,45 @@ const PortfolioSlider = {
 };
 
 // ==================== FORM HANDLER ====================
+// EmailJS Configuration
+
+// ==================== FORM HANDLER ====================
+const EMAILJS_CONFIG = {
+  PUBLIC_KEY: "P0dgk1xtyxWwshfT-",
+  SERVICE_ID: "service_jtto9mz",
+  TEMPLATE_ID: "template_zhj6lzt",
+};
+
 const FormHandler = {
-  validateForm(inputs) {
-    if (Object.values(inputs).some((v) => !v)) {
-      this.showPopup("⚠️ Please fill in all fields.", "error");
+  isSubmitting: false,
+  formInitialized: false, // Track if form is already initialized
+
+  initEmailJS() {
+    try {
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+      console.log("✅ EmailJS initialized");
+      return true;
+    } catch (error) {
+      console.error("❌ Init error:", error);
+      this.showPopup("Failed to initialize email service", "error");
+      return false;
+    }
+  },
+
+  validateForm(data) {
+    if (!data.name || !data.email || !data.subject || !data.message) {
+      this.showPopup("⚠️ Please fill all required fields.", "error");
       return false;
     }
 
-    if (!inputs.email.includes("@") || !inputs.email.includes(".")) {
-      this.showPopup("📧 Please enter a valid email address.", "error");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      this.showPopup("📧 Invalid email address.", "error");
+      return false;
+    }
+
+    if (data.message.length < 10) {
+      this.showPopup("💬 Message too short.", "error");
       return false;
     }
 
@@ -657,62 +687,173 @@ const FormHandler = {
 
   getFormData(form) {
     return {
-      name: form.querySelector('input[name="name"]')?.value.trim(),
-      email: form.querySelector('input[name="email"]')?.value.trim(),
-      phone: form.querySelector('input[name="phone"]')?.value.trim(),
-      subject: form.querySelector('input[name="subject"]')?.value.trim(),
-      message: form.querySelector('textarea[name="message"]')?.value.trim(),
+      name: form.querySelector('[name="name"]').value.trim(),
+      email: form.querySelector('[name="email"]').value.trim(),
+      phone:
+        form.querySelector('[name="phone"]').value.trim() || "Not provided",
+      subject: form.querySelector('[name="subject"]').value.trim(),
+      message: form.querySelector('[name="message"]').value.trim(),
+
+      // EmailJS template variables
+      from_name: form.querySelector('[name="name"]').value.trim(),
+      from_email: form.querySelector('[name="email"]').value.trim(),
+      reply_to: form.querySelector('[name="email"]').value.trim(),
+      sent_date: new Date().toLocaleString(),
     };
   },
 
   showPopup(message, type = "success") {
-    const existingPopup = document.querySelector(".form-popup");
-    if (existingPopup) existingPopup.remove();
+    const existing = document.querySelector(".form-popup");
+    if (existing) existing.remove();
 
     const popup = document.createElement("div");
     popup.className = `form-popup form-popup-${type}`;
-    const icon = type === "success" ? "✓" : "⚠️";
+
+    // Set icons based on type
+    let icon = "✓";
+    if (type === "error") icon = "✗";
+    if (type === "warning") icon = "⚠";
 
     popup.innerHTML = `
-      <div class="popup-content">
-        <span class="popup-icon">${icon}</span>
-        <span class="popup-message">${message}</span>
-        <button class="popup-close">&times;</button>
-      </div>
-      <div class="popup-progress"></div>
-    `;
+        <div class="popup-content">
+          <div class="popup-icon">${icon}</div>
+          <div class="popup-message">${message}</div>
+          <button class="popup-close" onclick="this.closest('.form-popup').remove()">×</button>
+        </div>
+        <div class="popup-progress"></div>
+      `;
 
     document.body.appendChild(popup);
 
-    popup
-      .querySelector(".popup-close")
-      .addEventListener("click", () => this.closePopup(popup));
-    setTimeout(() => this.closePopup(popup), 4000);
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+      if (popup && popup.parentElement) {
+        popup.classList.add("form-popup-hide");
+        setTimeout(() => {
+          if (popup && popup.parentElement) popup.remove();
+        }, 300);
+      }
+    }, 5000);
   },
 
-  closePopup(popup) {
-    popup.classList.add("form-popup-hide");
-    setTimeout(() => popup.remove(), 300);
-  },
+  async sendEmail(data) {
+    const btn = document.getElementById("submitBtn");
+    const original = btn.innerHTML;
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const formData = this.getFormData(e.target);
+    // Add loading class
+    btn.classList.add("loading");
+    btn.disabled = true;
+    btn.innerHTML = "Sending...";
 
-    if (this.validateForm(formData)) {
-      this.showPopup(
-        "Message sent successfully! We'll get back soon.",
-        "success"
+    try {
+      const res = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        data
       );
-      e.target.reset();
+
+      console.log("✅ Email sent:", res);
+      return { success: true };
+    } catch (err) {
+      console.error("❌ EmailJS error:", err);
+
+      let msg = "Failed to send message. ";
+
+      if (err.text === "Network Error") {
+        msg += "Check your internet connection.";
+      } else if (err.text === "Service not found") {
+        msg += "Invalid SERVICE_ID.";
+      } else if (err.text === "Template not found") {
+        msg += "Invalid TEMPLATE_ID.";
+      } else if (err.status === 401) {
+        msg += "Invalid PUBLIC_KEY.";
+      } else {
+        msg += "Try again later.";
+      }
+
+      return { success: false, error: msg };
+    } finally {
+      // Only reset button if not success (success case handles button differently)
+      if (btn && btn.innerHTML !== "Sent! ✓") {
+        btn.classList.remove("loading");
+        btn.disabled = false;
+        btn.innerHTML = original;
+      }
+    }
+  },
+
+  async handleSubmit(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Stop event propagation
+
+    // Prevent double submission - UNCOMMENT THIS!
+    if (this.isSubmitting) {
+      // console.log("⚠️ Submission already in progress");
+      // this.showPopup("Please wait, message is already being sent...", "warning");
+      return;
+    }
+
+    const form = e.target;
+    const data = this.getFormData(form);
+
+    if (!this.validateForm(data)) return;
+
+    // Set submitting flag
+    this.isSubmitting = true;
+
+    const result = await this.sendEmail(data);
+
+    if (result.success) {
+      this.showPopup("Message sent successfully!", "success");
+      form.reset();
+
+      // Disable submit button permanently after success
+      const btn = document.getElementById("submitBtn");
+      if (btn) {
+        btn.classList.remove("loading");
+        btn.disabled = true;
+        btn.innerHTML = "Sent! ✓";
+        btn.style.opacity = "0.7";
+        btn.style.cursor = "not-allowed";
+      }
+
+      this.isSubmitting = false;
+    } else {
+      this.showPopup(result.error, "error");
+      this.isSubmitting = false; // Reset flag on error so user can try again
     }
   },
 
   init() {
-    const form = DOM.elements.contactForm;
-    if (form) form.addEventListener("submit", this.handleSubmit.bind(this));
+    // Prevent multiple initialization
+    if (this.formInitialized) {
+      console.log("⚠️ Form already initialized");
+      return;
+    }
+
+    if (!this.initEmailJS()) return;
+
+    const form = document.getElementById("contact-form");
+    if (!form) {
+      console.error("❌ Form not found");
+      return;
+    }
+
+    // Remove any existing listeners first
+    form.removeEventListener("submit", this.handleSubmit.bind(this));
+
+    // Add the listener once
+    form.addEventListener("submit", this.handleSubmit.bind(this));
+
+    this.formInitialized = true;
+    console.log("✅ Form ready - initialized once");
   },
 };
+
+// IMPORTANT: Only initialize once!
+// Remove the duplicate initialization at the end of your file
+// Keep only this one:
+// document.addEventListener("DOMContentLoaded", () => FormHandler.init());
 
 // ==================== LOADING SCREEN ====================
 const LoadingScreen = {
