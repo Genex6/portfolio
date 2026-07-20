@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesis · Full Stack Portfolio</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/images/favicon.ico"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts + simple reset -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 (free icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <!-- Scripts (defer for performance) -->
+    <script src="index.js" defer></script>
+    <script src="sc.js" defer></script>
+  </head>
+  <body>
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="content">
+        <a href="index.html" class="logo-link">
+          <h1 class="logo">Genesis <i class="bx bx-code-alt"></i></h1>
+        </a>
+        <a href="#contact" class="hire-button">
+          hire me <i class="bx bx-chevrons-right"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="hero" id="home">
+      <div class="write-up">
+        <h2>hello! i'm</h2>
+        <h1>chigozie Daniel .J</h1>
+        <p>
+          Full-Stack Developer specializing in building secure, scalable web
+          applications using JavaScript, React, PHP, and MySQL. I focus on
+          creating efficient backend systems, clean user interfaces, and
+          integrating security best practices into every project.
+        </p>
+
+        <a href="asset/resume.pdf" class="resume" download>
+          Get Resume
+          <span class="icon-group">
+            <i class="bx bx-arrow-to-top bx-flip-vertical"></i>
+          </span>
+        </a>
+
+        <div class="video-link">
+          <a href="#" class="wave-btn" id="playVideo">
+            <i class="bx bx-play"></i>
+          </a>
+          <span class="video-text">Watch Video</span>
+        </div>
+
+        <!-- VIDEO OVERLAY -->
+        <div class="video-overlay" id="videoOverlay">
+          <div class="video-container">
+            <span class="close-video" id="closeVideo">&times;</span>
+            <iframe
+              id="videoFrame"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="image">
+        <div class="image2">
+          <img
+            class="img-fluid"
+            src="asset/images/myphoto.png"
+            alt="Chigozie Daniel"
+          />
+        </div>
+        <div class="half-round-shape">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <i class="bx bxl-github"></i>
+          </a>
+          <a
+            href="https://wa.me/2348012345678"
+            target="_blank"
+            aria-label="WhatsApp"
+          >
+            <i class="bx bxl-whatsapp"></i>
+          </a>
+          <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav id="mainNav">
+      <a href="#services" class="nav-link">services</a>
+      <a href="#skills" class="nav-link">skills</a>
+      <a href="#project" class="nav-link">project</a>
+      <a href="#contact" class="nav-link">contact</a>
+    </nav>
+
+    <!-- FLOATING THEME TOGGLE -->
+    <button
+      id="floatingThemeToggle"
+      class="floating-theme-toggle"
+      aria-label="Toggle dark/light mode"
+    >
+      <i id="floatingThemeIcon" class="bx bx-sun"></i>
+    </button>
+
+    <!-- SERVICES SECTION (with slider) -->
+    <section id="services">
+      <div class="hero1">
+        <div class="container">
+          <h1 class="container-tex">
+            <i class="bx bx-code-alt"></i> my Services
+            <i class="bx bx-code-alt"></i>
+          </h1>
+          <h1 class="service-write">service provided for my clients.</h1>
+        </div>
+      </div>
+
+      <!-- Slider Container -->
+      <div class="slider-container">
+        <div class="nav-arrow prev" id="prevBtn">←</div>
+        <div class="nav-arrow next" id="nextBtn">→</div>
+        <div class="slides-wrapper">
+          <div class="slides" id="slides">
+            <!-- SLIDE 1: Core Development -->
+            <div class="slide">
+              <div class="services-grid">
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">🚀</span>
+                    <h2>Complete Web Applications</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>
+                        Custom web apps (SaaS platforms, internal tools,
+                        dashboards)
+                      </li>
+                      <li>
+                        MVP development for startups (rapid prototyping to
+                        validation)
+                      </li>
+                      <li>
+                        Enterprise applications with complex business logic
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">🎨</span>
+                    <h2>Frontend Development</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>Responsive websites (React, Vue, Angular)</li>
+                      <li>
+                        Single-page applications (SPAs) with state management
+                      </li>
+                      <li>Progressive Web Apps (PWAs)</li>
+                      <li>UI/UX implementation from Figma/Adobe XD</li>
+                      <li>Performance optimization & Core Web Vitals</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">⚙️</span>
+                    <h2>Backend Development</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>RESTful API development & documentation</li>
+                      <li>GraphQL API implementation</li>
+                      <li>Authentication & authorization (JWT, OAuth, SAML)</li>
+                      <li>
+                        Third-party integrations (payments, CRM, marketing
+                        tools)
+                      </li>
+                      <li>Microservices architecture & Serverless functions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 2: Infrastructure & Specialized -->
+            <div class="slide">
+              <div class="services-grid">
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">🗄️</span>
+                    <h2>Database Solutions</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>Schema design & migration planning</li>
+                      <li>Database optimization & query tuning</li>
+                      <li>Data migration between systems</li>
+                      <li>Backup & recovery strategies</li>
+                      <li>Database maintenance & monitoring</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">☁️</span>
+                    <h2>DevOps & Infrastructure</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>
+                        Cloud deployment (AWS, GCP, Azure, Vercel, Heroku)
+                      </li>
+                      <li>CI/CD pipeline setup (GitHub Actions, GitLab CI)</li>
+                      <li>Containerization with Docker & Kubernetes</li>
+                      <li>Server configuration & SSL certificates</li>
+                      <li>Domain & hosting management</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">🛒</span>
+                    <h2>E-commerce Solutions</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>Custom e-commerce platforms</li>
+                      <li>Shopify/WordPress/WooCommerce customization</li>
+                      <li>Shopping cart & payment gateway integration</li>
+                      <li>Stripe, PayPal, Square integration</li>
+                      <li>Inventory management systems</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3: Support, Consulting & Specialized -->
+            <div class="slide">
+              <div class="services-grid">
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">🔧</span>
+                    <h2>Maintenance & Support</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>Bug fixing & troubleshooting</li>
+                      <li>Security updates & patches</li>
+                      <li>Performance monitoring & optimization</li>
+                      <li>Feature enhancements & iterations</li>
+                      <li>Technical SEO & analytics setup</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">📊</span>
+                    <h2>Consulting & Strategy</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>Technology stack recommendations</li>
+                      <li>Code review & quality assessment</li>
+                      <li>Architecture design & scalability planning</li>
+                      <li>Technical due diligence for investors</li>
+                      <li>Team training & mentoring</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="service-card">
+                  <div class="card-header">
+                    <span class="icon">⚡</span>
+                    <h2>Specialized Services</h2>
+                  </div>
+                  <div class="card-content">
+                    <ul class="service-list">
+                      <li>Real-time applications (chat, live streaming)</li>
+                      <li>Headless CMS development</li>
+                      <li>API integration (Stripe, Twilio, OpenAI)</li>
+                      <li>Web scraping & data aggregation</li>
+                      <li>Legacy system modernization</li>
+                      <li>Automation workflows & custom bots</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Dots -->
+      <div class="dots-container" id="dotsContainer">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+      </div>
+    </section>
+
+    <!-- SKILLS + COUNTERS SECTION -->
+    <section id="skills">
+      <div class="container">
+        <h1 class="container-tex">
+          <i class="bx bx-code-alt"></i> special skills
+          <i class="bx bx-code-alt"></i>
+        </h1>
+        <div class="skill-content">
+          <div class="hero-head">
+            <h1 class="service-write1">My Special Skill Field Here.</h1>
+            <a href="asset/resume.pdf" class="resume" download>
+              Get Resume
+              <span class="icon-group"
+                ><i class="bx bx-arrow-to-top bx-flip-vertical"></i
+              ></span>
+            </a>
+          </div>
+          <div class="skill-display-wrapper">
+            <div class="skill-progress-single-item">
+              <span class="tag"
+                ><i class="bx bx-chat"></i> Strategic Communication</span
+              >
+              <div class="skill-box">
+                <div class="progress-line" data-width="78">
+                  <span class="skill-percentage">78%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-progress-single-item">
+              <span class="tag"
+                ><i class="bx bx-user"></i> Visionary Leadership</span
+              >
+              <div class="skill-box">
+                <div class="progress-line" data-width="85">
+                  <span class="skill-percentage">85%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-progress-single-item">
+              <span class="tag"
+                ><i class="bx bx-group"></i> Collaborative Synergy</span
+              >
+              <div class="skill-box">
+                <div class="progress-line" data-width="94">
+                  <span class="skill-percentage">94%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-progress-single-item">
+              <span class="tag"
+                ><i class="bx bx-refresh"></i> Agile Adaptability</span
+              >
+              <div class="skill-box">
+                <div class="progress-line" data-width="88">
+                  <span class="skill-percentage">88%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-progress-single-item">
+              <span class="tag"
+                ><i class="bx bx-brain"></i> Analytical Problem Solving</span
+              >
+              <div class="skill-box">
+                <div class="progress-line" data-width="92">
+                  <span class="skill-percentage">92%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill-progress-single-item">
+              <span class="tag"
+                ><i class="bx bx-bulb"></i> Creative Ideation</span
+              >
+              <div class="skill-box">
+                <div class="progress-line" data-width="89">
+                  <span class="skill-percentage">89%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COUNTER SECTION -->
+      <div class="counter-section section-gap-tb-165 section-bg-2">
+        <div class="container">
+          <div class="counter-grid">
+            <div class="counter-item">
+              <div class="cont">
+                <div class="counter-icon"><i class="bx bx-smile"></i></div>
+                <div class="counter-content">
+                  <h2 class="counter-number">
+                    <span class="counter-value" data-target="238">0</span>+
+                  </h2>
+                </div>
+              </div>
+              <p class="counter-label">Happy Clients</p>
+            </div>
+            <div class="counter-item">
+              <div class="cont">
+                <div class="counter-icon">
+                  <i class="bx bx-check-circle"></i>
+                </div>
+                <div class="counter-content">
+                  <h2 class="counter-number">
+                    <span class="counter-value" data-target="490">0</span>K
+                  </h2>
+                </div>
+              </div>
+              <p class="counter-label">Project Complete</p>
+            </div>
+            <div class="counter-item">
+              <div class="cont">
+                <div class="counter-icon">
+                  <i class="bx bx-calendar-star"></i>
+                </div>
+                <div class="counter-content">
+                  <h2 class="counter-number">
+                    <span class="counter-value" data-target="28">0</span>+
+                  </h2>
+                </div>
+              </div>
+              <p class="counter-label">Years of Experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / PORTFOLIO SECTION -->
+    <section id="project">
+      <div class="solutiontext">
+        <h1 class="container-tex">
+          <i class="bx bx-code-alt"></i> My Projects
+          <i class="bx bx-code-alt"></i>
+        </h1>
+      </div>
+      <div class="motherdiv">
+        <h1 class="container-tex1">My complete Projects</h1>
+        <div class="slider-nav">
+          <button class="slider-btn" id="prevPortfolio">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="slider-dots" id="portfolioDots"></div>
+          <button class="slider-btn" id="nextPortfolio">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="portfolio-slider">
+        <div class="portfolio-slides" id="portfolioSlides">
+          <!-- Project 1: Glogistic Platform -->
+          <div class="portfolio-item">
+            <div class="media-container">
+              <div class="content1"><h1>Glogistic Platform</h1></div>
+              <div class="video-container">
+                <video muted loop playsinline poster="asset/video/myphoto.png">
+                  <source
+                    src="asset/video/Screen Recording 2025-05-28 at 10.13.46 PM.mov"
+                    type="video/mp4"
+                  />
+                </video>
+                <div class="hover-message">
+                  <i class="bx bx-play"></i>Hover to play
+                </div>
+              </div>
+            </div>
+            <div class="content1">
+              <p>
+                A comprehensive logistics management system that optimizes
+                shipping routes, provides real-time tracking, and automates
+                dispatch operations.
+              </p>
+              <div class="tech-stack">
+                <div class="tech-item">
+                  <i class="bx bxl-react"></i><span>React</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bxl-nodejs"></i><span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bxl-mongodb"></i><span>MongoDB</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-map"></i><span>Mapbox</span>
+                </div>
+              </div>
+              <div class="meta">
+                <div>
+                  <p>Project Year</p>
+                  <p>2020</p>
+                </div>
+                <div>
+                  <p>Project Link</p>
+                  <p>
+                    <a
+                      href="https://glogistic.example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >View Live <i class="bx bx-link-external"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: UrbanStyle E-commerce -->
+          <div class="portfolio-item">
+            <div class="media-container">
+              <div class="content1"><h1>UrbanStyle E-commerce</h1></div>
+              <div class="video-container">
+                <video muted loop playsinline poster="asset/video/myphoto.png">
+                  <source
+                    src="asset/video/Screen Recording 2025-05-28 at 10.13.46 PM.mov"
+                    type="video/mp4"
+                  />
+                </video>
+                <div class="hover-message">
+                  <i class="bx bx-play"></i>Hover to play
+                </div>
+              </div>
+            </div>
+            <div class="content1">
+              <p>
+                High-performance fashion e-commerce with AR try-on features,
+                personalized recommendations, and seamless checkout.
+              </p>
+              <div class="tech-stack">
+                <div class="tech-item">
+                  <i class="bx bxl-vuejs"></i><span>Vue.js</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bxl-laravel"></i><span>Laravel</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bxl-mysql"></i><span>MySQL</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-cube"></i><span>Three.js</span>
+                </div>
+              </div>
+              <div class="meta">
+                <div>
+                  <p>Project Year</p>
+                  <p>2021</p>
+                </div>
+                <div>
+                  <p>Project Link</p>
+                  <p>
+                    <a
+                      href="https://urbanstyle.example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >View Live <i class="bx bx-link-external"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: HealthTrack Pro -->
+          <div class="portfolio-item">
+            <div class="media-container">
+              <div class="content1"><h1>HealthTrack Pro</h1></div>
+              <div class="video-container">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="asset/video/poster-healthtrack.jpg"
+                >
+                  <source
+                    src="asset/video/healthtrack-demo.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div class="hover-message">
+                  <i class="bx bx-play"></i>Hover to play
+                </div>
+              </div>
+            </div>
+            <div class="content1">
+              <p>
+                Telehealth platform with AI-powered diagnostics, appointment
+                scheduling, and prescription management.
+              </p>
+              <div class="tech-stack">
+                <div class="tech-item">
+                  <i class="bx bxl-angular"></i><span>Angular</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bxl-python"></i><span>Python</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-brain"></i><span>TensorFlow</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bxl-firebase"></i><span>Firebase</span>
+                </div>
+              </div>
+              <div class="meta">
+                <div>
+                  <p>Project Year</p>
+                  <p>2022</p>
+                </div>
+                <div>
+                  <p>Project Link</p>
+                  <p>
+                    <a
+                      href="https://healthtrack.example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >View Live <i class="bx bx-link-external"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Finova Banking -->
+          <div class="portfolio-item">
+            <div class="media-container">
+              <div class="content1"><h1>Finova Banking</h1></div>
+              <div class="video-container">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="asset/video/poster-finova.jpg"
+                >
+                  <source src="asset/video/finova-demo.mp4" type="video/mp4" />
+                </video>
+                <div class="hover-message">
+                  <i class="bx bx-play"></i>Hover to play
+                </div>
+              </div>
+            </div>
+            <div class="content1">
+              <p>
+                Digital banking solution with blockchain integration, AI fraud
+                detection, and personalized financial insights.
+              </p>
+              <div class="tech-stack">
+                <div class="tech-item">
+                  <i class="bx bxl-react"></i><span>React Native</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-code-alt"></i><span>Go</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-link"></i><span>Hyperledger</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-docker"></i><span>K8s</span>
+                </div>
+              </div>
+              <div class="meta">
+                <div>
+                  <p>Project Year</p>
+                  <p>2023</p>
+                </div>
+                <div>
+                  <p>Project Link</p>
+                  <p>
+                    <a
+                      href="https://finova.example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >View Demo <i class="bx bx-link-external"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: EduVerse Learning -->
+          <div class="portfolio-item">
+            <div class="media-container">
+              <div class="content1"><h1>EduVerse Learning</h1></div>
+              <div class="video-container">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  poster="asset/video/poster-eduverse.jpg"
+                >
+                  <source
+                    src="asset/video/eduverse-demo.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <div class="hover-message">
+                  <i class="bx bx-play"></i>Hover to play
+                </div>
+              </div>
+            </div>
+            <div class="content1">
+              <p>
+                Interactive learning platform with VR classrooms, adaptive
+                learning algorithms, and real-time collaboration tools.
+              </p>
+              <div class="tech-stack">
+                <div class="tech-item">
+                  <i class="bx bxl-react"></i><span>Next.js</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-vr-cardboard"></i><span>WebXR</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-server"></i><span>NestJS</span>
+                </div>
+                <div class="tech-item">
+                  <i class="bx bx-video-recording"></i><span>WebRTC</span>
+                </div>
+              </div>
+              <div class="meta">
+                <div>
+                  <p>Project Year</p>
+                  <p>2023</p>
+                </div>
+                <div>
+                  <p>Project Link</p>
+                  <p>
+                    <a
+                      href="https://eduvrse.example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >View Demo <i class="bx bx-link-external"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="section-content">
+              <h1 class="container-tex">Favourite Clients</h1>
+              <h2 class="container-tex1">Work With Trusted Company.</h2>
+              <p class="write-up2">
+                We're proud to partner with industry-leading brands worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="company-logo-display-wrapper">
+          <div class="company-logo-display-slider">
+            <div class="slider-container1">
+              <div class="slider-track">
+                <!-- Company 1 -->
+                <div class="logo-slide">
+                  <div class="logo-card">
+                    <div class="logo-default">
+                      <img src="/asset/images/com.png" alt="Company Logo" />
+                    </div>
+                    <div class="logo-hover">
+                      <h3>NIIT</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Enim et ratione quaerat delectus iusto quidem
+                        placeat, repellat harum voluptatem. Delectus?
+                      </p>
+                      <div class="company-info">
+                        <div class="info-item">
+                          <h4>Founder</h4>
+                          <p>Rajan Sharma</p>
+                        </div>
+                        <div class="info-item">
+                          <h4>Established</h4>
+                          <p>2001</p>
+                        </div>
+                        <div class="info-item full-width">
+                          <h4>Website</h4>
+                          <a
+                            href="https://niit.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Live <i class="bx bx-link-external"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company 2 -->
+                <div class="logo-slide">
+                  <div class="logo-card">
+                    <div class="logo-default">
+                      <img src="/asset/images/2.png" alt="Company Logo" />
+                    </div>
+                    <div class="logo-hover">
+                      <h3>Tech Corp</h3>
+                      <p>
+                        Leading technology company specializing in software
+                        development and digital transformation solutions.
+                      </p>
+                      <div class="company-info">
+                        <div class="info-item">
+                          <h4>Founder</h4>
+                          <p>Sarah Johnson</p>
+                        </div>
+                        <div class="info-item">
+                          <h4>Established</h4>
+                          <p>2010</p>
+                        </div>
+                        <div class="info-item full-width">
+                          <h4>Website</h4>
+                          <a
+                            href="https://techcorp.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Live <i class="bx bx-link-external"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company 3 -->
+                <div class="logo-slide">
+                  <div class="logo-card">
+                    <div class="logo-default">
+                      <img src="/asset/images/3.png" alt="Company Logo" />
+                    </div>
+                    <div class="logo-hover">
+                      <h3>Innovate Inc</h3>
+                      <p>
+                        Innovative solutions provider focused on AI, machine
+                        learning, and cutting-edge technologies.
+                      </p>
+                      <div class="company-info">
+                        <div class="info-item">
+                          <h4>Founder</h4>
+                          <p>Michael Chen</p>
+                        </div>
+                        <div class="info-item">
+                          <h4>Established</h4>
+                          <p>2015</p>
+                        </div>
+                        <div class="info-item full-width">
+                          <h4>Website</h4>
+                          <a
+                            href="https://innovate.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Live <i class="bx bx-link-external"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company 4 -->
+                <div class="logo-slide">
+                  <div class="logo-card">
+                    <div class="logo-default">
+                      <img src="/asset/images/4.png" alt="Company Logo" />
+                    </div>
+                    <div class="logo-hover">
+                      <h3>Global Solutions</h3>
+                      <p>
+                        International consulting firm providing business
+                        strategy and operational excellence services.
+                      </p>
+                      <div class="company-info">
+                        <div class="info-item">
+                          <h4>Founder</h4>
+                          <p>Maria Garcia</p>
+                        </div>
+                        <div class="info-item">
+                          <h4>Established</h4>
+                          <p>2008</p>
+                        </div>
+                        <div class="info-item full-width">
+                          <h4>Website</h4>
+                          <a
+                            href="https://globalsolutions.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Live <i class="bx bx-link-external"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company 5 -->
+                <div class="logo-slide">
+                  <div class="logo-card">
+                    <div class="logo-default">
+                      <img
+                        src="/asset/images/company5.png"
+                        alt="Company Logo"
+                      />
+                    </div>
+                    <div class="logo-hover">
+                      <h3>Digital Dynamics</h3>
+                      <p>
+                        Digital marketing agency specializing in SEO, social
+                        media, and content strategy.
+                      </p>
+                      <div class="company-info">
+                        <div class="info-item">
+                          <h4>Founder</h4>
+                          <p>David Kim</p>
+                        </div>
+                        <div class="info-item">
+                          <h4>Established</h4>
+                          <p>2012</p>
+                        </div>
+                        <div class="info-item full-width">
+                          <h4>Website</h4>
+                          <a
+                            href="https://digitaldynamics.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Live <i class="bx bx-link-external"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company 6 -->
+                <div class="logo-slide">
+                  <div class="logo-card">
+                    <div class="logo-default">
+                      <img
+                        src="/asset/images/company6.png"
+                        alt="Company Logo"
+                      />
+                    </div>
+                    <div class="logo-hover">
+                      <h3>Creative Studio</h3>
+                      <p>
+                        Award-winning design studio offering branding, UI/UX,
+                        and creative direction services.
+                      </p>
+                      <div class="company-info">
+                        <div class="info-item">
+                          <h4>Founder</h4>
+                          <p>Emma Watson</p>
+                        </div>
+                        <div class="info-item">
+                          <h4>Established</h4>
+                          <p>2018</p>
+                        </div>
+                        <div class="info-item full-width">
+                          <h4>Website</h4>
+                          <a
+                            href="https://creativestudio.example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Live <i class="bx bx-link-external"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button class="slider-arrow prev-arrow">
+                <i class="bx bx-chevron-left"></i>
+              </button>
+              <button class="slider-arrow next-arrow">
+                <i class="bx bx-chevron-right"></i>
+              </button>
+
+              <!-- Pagination Dots -->
+              <div class="slider-dots1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dashboard">
+        <!-- SLIDER SECTION -->
+        <div class="testimonial-display-section">
+          <div class="container1">
+            <div class="section-content">
+              <span class="section-tag">Testimonial</span>
+              <h2 class="section-title1">Satisfied Clients Say</h2>
+            </div>
+            <div class="testimonial-display-wrapper">
+              <div class="testimonial-slider-container">
+                <div class="testimonial-track" id="testimonialTrack"></div>
+              </div>
+              <!-- <div class="dots-wrapper" id="dotsContainer"></div> -->
+            </div>
+            <div class="default-nav-style">
+              <div class="slider-button button-prev" id="prevSlideBtn">←</div>
+              <div class="slider-button button-next" id="nextSlideBtn">→</div>
+            </div>
+            <!-- BUTTON to open modal (replaces dropdown/static form) -->
+            <div class="share-button-wrapper">
+              <button class="share-experience-btn" id="openModalBtn">
+                <span class="btn-icon">✍️</span>
+                Share Your Experience
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUTTON to open modal (replaces dropdown/static form) -->
+        <!-- <div class="share-button-wrapper">
+          <button class="share-experience-btn" id="openModalBtn">
+            <span class="btn-icon">✍️</span>
+            Share Your Experience
+          </button>
+        </div> -->
+      </div>
+
+      <!-- MODAL for testimonial submission -->
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container">
+          <div class="modal-header">
+            <h3><span>✨</span> Share your story</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-grid">
+              <div class="input-row">
+                <div class="input-group">
+                  <label>Full name *</label>
+                  <input
+                    type="text"
+                    id="modalClientName"
+                    placeholder="e.g. Alex Morgan"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Title / Company *</label>
+                  <input
+                    type="text"
+                    id="modalClientTitle"
+                    placeholder="e.g. Marketing Director, CreativX"
+                  />
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Your testimonial *</label>
+                <textarea
+                  rows="3"
+                  id="modalClientComment"
+                  placeholder="What do you think about our service? We'd love to hear your feedback..."
+                ></textarea>
+              </div>
+              <div class="input-group">
+                <label>Rating *</label>
+                <div class="rating-selector">
+                  <div class="star-rating-input" id="modalStarRatingWidget">
+                    <span data-value="1">☆</span><span data-value="2">☆</span
+                    ><span data-value="3">☆</span><span data-value="4">☆</span
+                    ><span data-value="5">☆</span>
+                  </div>
+                  <span
+                    style="font-size: 0.8rem; color: #475569"
+                    id="modalRatingValueLabel"
+                    >(0/5)</span
+                  >
+                </div>
+              </div>
+              <button class="submit-modal-btn" id="submitModalBtn">
+                ➕ Add your testimonial
+              </button>
+              <div id="modalFeedback"></div>
+              <div
+                style="
+                  font-size: 0.75rem;
+                  color: #6c757d;
+                  text-align: center;
+                  margin-top: 0.5rem;
+                "
+              >
+                💬 Your testimonial will appear instantly in the slider
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT + MAP SECTION -->
+    <section id="contact">
+      <div class="contact-box pos-relative">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <!-- Start Map Area-->
+              <div class="map">
+                <div class="gmap-box">
+                  <iframe
+                    id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                  ></iframe>
+                </div>
+              </div>
+              <!-- End Map Area -->
+            </div>
+          </div>
+          <div class="row1 flex-lg-row flex-column-reverse">
+            <div class="col-lg-4">
+              <div class="contact-sidebar-wapper">
+                <div class="contact-sidebar">
+                  <ul class="contact-sidebar-list-item">
+                    <li class="contact-sidebar-single-box">
+                      <h6 class="title-text">Phone:</h6>
+                      <a href="tel:+0123456789" class="link">0123456789</a>
+                    </li>
+                    <li class="contact-sidebar-single-box">
+                      <h6 class="title-text">Email:</h6>
+                      <a href="mailto:demo@example.com" class="link"
+                        >demo@example.com</a
+                      >
+                    </li>
+                    <li class="contact-sidebar-single-box">
+                      <h6 class="title-text">Website:</h6>
+                      <a
+                        href="https://www.example.com"
+                        class="link"
+                        target="_blank"
+                        >www.example.com</a
+                      >
+                    </li>
+                    <li class="contact-sidebar-single-box">
+                      <h6 class="title-text">Address:</h6>
+                      <span class="text"
+                        >121 King St, Melbourne VIC 3000, Australia</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="sidebar-widget-single-area">
+                  <h3 class="title">Follow Me</h3>
+                  <ul class="social-link1">
+                    <li>
+                      <a
+                        href="https://wa.me/2348012345678"
+                        target="_blank"
+                        aria-label="WhatsApp"
+                      >
+                        <i class="bx bxl-whatsapp"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://github.com/yourusername"
+                        target="_blank"
+                        aria-label="GitHub"
+                      >
+                        <i class="bx bxl-github"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                      >
+                        <i class="bx bxl-linkedin"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 offset-lg-1">
+              <div class="contact-form-wrapper section-mt-165">
+                <div class="content2">
+                  <span class="section-tag1">Get In Touch</span>
+                  <h2 class="title">
+                    If you have any project or need help. Contact me
+                  </h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                  </p>
+                </div>
+                <div class="contact-form-box">
+                  <div class="card-header">
+                    <i class="fas fa-paper-plane"></i>
+                    <div>
+                      <h2>Send a message</h2>
+                      <p>
+                        We'd love to hear from you! Fill out the form below and
+                        we'll get back to you within 24 hours.
+                      </p>
+                    </div>
+                  </div>
+                  <form
+                    id="contact-form"
+                    class="default-form contact-form"
+                    method="POST"
+                    action=""
+                  >
+                    <!-- <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>"> -->
+                    <div class="row mb-n6">
+                      <div class="nam">
+                        <div class="col-xl-6 mb-6">
+                          <div class="default-form-group">
+                            <label><i class="fas fa-user"></i> Full name</label>
+                            <input
+                              type="text"
+                              name="name"
+                              id="name"
+                              placeholder="John Carter"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 mb-6">
+                          <div class="default-form-group">
+                            <label
+                              ><i class="fas fa-envelope"></i> Email
+                              address</label
+                            >
+                            <input
+                              type="email"
+                              name="email"
+                              id="email"
+                              placeholder="hello@example.com"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="nam">
+                        <div class="col-xl-6 mb-6">
+                          <div class="default-form-group">
+                            <label
+                              ><i class="fas fa-phone-alt"></i> Phone
+                              number</label
+                            >
+                            <input
+                              type="tel"
+                              name="phone"
+                              id="phone"
+                              placeholder="+1 234 567 8900 / your number"
+                            />
+                            <small
+                              style="
+                                font-size: 0.7rem;
+                                color: white;
+                                margin-top: 10px;
+                              "
+                              ><i class="fas fa-info-circle"></i> Optional but
+                              helps us reach you faster</small
+                            >
+                          </div>
+                        </div>
+                        <div class="col-xl-6 mb-6">
+                          <div class="default-form-group">
+                            <label><i class="fas fa-tag"></i> Subject</label>
+                            <input
+                              type="text"
+                              name="subject"
+                              id="subject"
+                              placeholder="Inquiry / Support / Feedback"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xl-12 mb-6">
+                        <div class="default-form-group">
+                          <label
+                            ><i class="fas fa-comment-dots"></i> Your
+                            message</label
+                          >
+                          <textarea
+                            name="message"
+                            id="message"
+                            placeholder="Write your message here..."
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="col-12 mb-6">
+                        <div class="default-form-group tex-center">
+                          <button
+                            type="submit"
+                            class="btn btn-lg btn-outline-one"
+                            id="submitBtn"
+                          >
+                            <i class="fas fa-paper-plane"></i> Send message
+                          </button>
+                        </div>
+                      </div>
+
+                      <p class="form-messege" id="formMessage"></p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Add before closing </body> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+  </body>
+</html>
