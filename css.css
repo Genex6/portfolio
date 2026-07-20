@@ -3138,9 +3138,9 @@ section.active {
   }
   .default-form-group textarea {
     resize: none;
-    padding: 0;
+    padding: 10px 20px;
     width: 340px;
-    margin-left: -2px;
+    margin-left: 12px;
   }
   .default-form-group {
     display: flex;
