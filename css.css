@@ -54,21 +54,21 @@
 /* ==================== FONTS ==================== */
 @font-face {
   font-family: "Poppin";
-  src: url("/asset/font/CormorantGaramond-Bold.ttf");
+  src: url("/font/CormorantGaramond-Bold.ttf");
   font-weight: bold;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Poppin1";
-  src: url("/asset/font/CormorantGaramond-Light.ttf");
+  src: url("/font/CormorantGaramond-Light.ttf");
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Poppin2";
-  src: url("/asset/font/Montserrat/static/Montserrat-lightItalic.ttf");
+  src: url("/font/Montserrat/static/Montserrat-lightItalic.ttf");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
